@@ -8,15 +8,15 @@ const express = require('express')
 const app = express()
 
 
-/***************** view engine ****************/
+/************** view engine ***************/
 app.set('view engine', 'ejs')
 app.set('views', './views')
 app.locals.pretty = true
 
 
-/***************** middleware ****************/
+/*************** middleware ***************/
 app.use(express.json())
-app.use(express.urlencoded({ extended: false}))
+app.use(express.urlencoded({ extended: false }))
 
 
 /*************** static init **************/
@@ -29,7 +29,7 @@ const sqlRouter = require('./routes/sql')
 app.use('/sql', sqlRouter)
 
 
-/*************** error init **************/
+/**************** error init **************/
 const notFoundRouter = require('./routes/error/404-router')
 const errorRouter = require('./routes/error/500-router')
 app.use(notFoundRouter)
@@ -37,4 +37,4 @@ app.use(errorRouter)
 
 
 /*************** server init **************/
-app.listen(port, () => {console.log('html://127.0.0.1:'+port)})
+app.listen(port, () => { console.log('http://127.0.0.1:'+port) })
