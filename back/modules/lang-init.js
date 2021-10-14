@@ -124,7 +124,7 @@ module.exports = _lang => {
 				GLOBAL: {
 					LOGO					: 'BOOK MANAGEMENT SYSTEM',
 					TAB_TITLE			: 'Express Board',
-					NAVI: 				['Book Register', 'Book List', 'Login', 'Logout', 'Join', 'Mypage']
+					NAVI: 				['Book Register', 'Book List', 'Login', 'Logout', 'Join', 'Mypage', 'Edit User']
 				},
 				LIST: {
 					TITLE 				: 'Book List',
