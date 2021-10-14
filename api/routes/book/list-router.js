@@ -6,6 +6,7 @@ const createError = require('http-errors')
 const { cutTail, chgStatus, getIcon, relPath } = require('../../modules/util')
 const createPager = require('../../modules/pager-init')
 const { findBookCount, findBooks } = require('../../models/book')
+const { isApiUser }= requir()
 
 router.get(['/', '/:page'], async (req, res, next) => {
 	try {
