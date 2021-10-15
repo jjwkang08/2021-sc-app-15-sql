@@ -1,4 +1,5 @@
 module.exports = (error, req, res, next) => {
+  console.log(error)
 	const err = { status: error.status || 500, message: error.message }
 	if(error.sql) {
 		err.desc = '<b>CODE:</b> ' + error.code + '<br>'

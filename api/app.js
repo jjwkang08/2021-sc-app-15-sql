@@ -2,11 +2,8 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
-
-
 
 /*************** server init **************/
 require('./modules/server-init')(app, process.env.PORT)
@@ -15,10 +12,12 @@ require('./modules/server-init')(app, process.env.PORT)
 /*************** middleware ***************/
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(cors({origin: true, credentials: true}))
+app.use(cors({ origin: true, credentials: true }))
 app.use(cookieParser())
 
+
 /*************** logger init **************/
+const logger = require('./middlewares/morgan-mw')
 app.use(logger)
 
 

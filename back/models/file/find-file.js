@@ -41,7 +41,7 @@ const findFile = async (idx) => {
 		return { success: true, file }
 	}
 	catch(err) {
-    throw new Error(err)
+		throw new Error(err)
 	}
 }
 

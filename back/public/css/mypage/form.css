@@ -11,4 +11,4 @@
 .form-wrapper .valid {padding-top: .5em; color: #00559b;}
 .form-wrapper .valid.error {color: #a70404;}
 
-.textarea {}
+.form-wrapper textarea { height: 200px; overflow-y: auto;}
