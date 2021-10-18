@@ -10,6 +10,7 @@ const { isApiUser } = require('../../middlewares/jwt-mw')
 
 router.get(['/', '/:page'], isApiUser, async (req, res, next) => {
 	try {
+    console.log('hi')
 		const { count: totalRecord } = await findBookCount()
 		const page = Number(req.params.page || 1)
 		const { listCnt, pagerCnt } = req.query
