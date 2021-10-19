@@ -39,6 +39,7 @@ const naverStrategy = new NaverStrategy({
 	clientID: process.env.NAVER_KEY,
 	clientSecret: process.env.NAVER_SALT,
 	callbackURL: '/auth/naver/cb'
+  
 }, cb)
 
 module.exports = passport => passport.use(naverStrategy)
