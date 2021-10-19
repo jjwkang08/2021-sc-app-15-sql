@@ -22,7 +22,7 @@ router.post('/', isUser, async (req, res, next) => {
     const user = { ...req.body, idx: req.user.idx, status: req.user.status }
 		const { success } = await deleteUser(user)
     if(success) {
-      req.logOut()
+      req.logout()
       req.session.destroy()
       res.locals.user = null
       res.send(alert(ALERT.WITHDRAWAL))
