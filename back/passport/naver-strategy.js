@@ -15,9 +15,11 @@ const cb = async (accessToken, refreshToken, profile, done) => {
 			profileURL: profile._json.profile_image || null,
 			email: profile._json.email || null,
 		}
+		console.log("naver login => ", user)
 		let { success, user: _user } = await findUser('userid', user.userid)
+		console.log(success)
 		if(success) {
-      const { idx, status } = _user
+			const { idx, status } = _user
 			if(status === '0') {
 				const { success } = await changeUser(
 					{ status: '3' }, 
@@ -32,7 +34,7 @@ const cb = async (accessToken, refreshToken, profile, done) => {
 				if(success && success2) user.idx = idx
 				else done('Error')
 			}
-      else user.idx = idx
+			else user.idx = idx
 		}
 		else {
 			let { idx: id } = await createSnsUser(user, userSns)
@@ -49,7 +51,6 @@ const naverStrategy = new NaverStrategy({
 	clientID: process.env.NAVER_KEY,
 	clientSecret: process.env.NAVER_SALT,
 	callbackURL: '/auth/naver/cb'
-
 }, cb)
 
 module.exports = passport => passport.use(naverStrategy)

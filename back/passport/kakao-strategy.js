@@ -9,6 +9,7 @@ const cb = async (accessToken, refreshToken, profile, done) => {
 		// console.log(profile)
 		// console.log('==================')
 		let user = { userid: profile.id, accessToken }
+    console.log(profile)
 		let userSns = { accessToken, refreshToken, provider: 'KA', snsid: profile.id, 
 			snsName: profile.username || null,
 			displayName: profile.displayName || null,
@@ -17,7 +18,7 @@ const cb = async (accessToken, refreshToken, profile, done) => {
 		}
 		let { success, user: _user } = await findUser('userid', user.userid)
 		if(success) {
-      const { idx, status } = _user
+			const { idx, status } = _user
 			if(status === '0') {
 				const { success } = await changeUser(
 					{ status: '3' }, 
@@ -32,7 +33,7 @@ const cb = async (accessToken, refreshToken, profile, done) => {
 				if(success && success2) user.idx = idx
 				else done('Error')
 			}
-      else user.idx = idx
+			else user.idx = idx
 		}
 		else {
 			let { idx: id } = await createSnsUser(user, userSns)
