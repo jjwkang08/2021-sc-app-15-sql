@@ -8,7 +8,7 @@ const createPager = require('../../modules/pager-init')
 const { findBookCount, findBooks } = require('../../models/book')
 const { isApiUser } = require('../../middlewares/jwt-mw')
 
-router.get(['/', '/:page'], isApiUser, async (req, res, next) => {
+router.get(['/', '/:page'], isApiUser, /*Lodder,*/ async (req, res, next) => {
 	try {
     console.log('hi')
 		const { count: totalRecord } = await findBookCount()
